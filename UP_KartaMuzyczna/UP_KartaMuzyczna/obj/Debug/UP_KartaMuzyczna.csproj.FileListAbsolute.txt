@@ -1,0 +1,15 @@
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\bin\Debug\UP_KartaMuzyczna.exe.config
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\bin\Debug\UP_KartaMuzyczna.exe
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\bin\Debug\UP_KartaMuzyczna.pdb
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\bin\Debug\Interop.WMPLib.dll
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\bin\Debug\AxInterop.WMPLib.dll
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.csprojAssemblyReference.cache
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\Interop.WMPLib.dll
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\AxInterop.WMPLib.dll
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.csproj.ResolveComReference.cache
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.Menu.resources
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.Properties.Resources.resources
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.csproj.GenerateResource.cache
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.csproj.CoreCompileInputs.cache
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.exe
+c:\users\fujitsu\source\repos\UP_KartaMuzyczna\UP_KartaMuzyczna\obj\Debug\UP_KartaMuzyczna.pdb
