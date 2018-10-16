@@ -35,6 +35,10 @@ namespace UP_KartaMuzyczna
             {
                 soundPlayer.PlayWindowsMediaPlayer(path);
             }
+            else if(DirectSound_rbnt.Checked)
+            {
+                soundPlayer.PlayDirectSound(path);
+            }
         }
 
         private void Stop_btn_Click(object sender, EventArgs e)
@@ -46,6 +50,10 @@ namespace UP_KartaMuzyczna
             else if(WMP_rbtn.Checked)
             {
                 soundPlayer.StopWindowsMediaPlayer();
+            }
+            else if (DirectSound_rbnt.Checked)
+            {
+                soundPlayer.StopDirectSound();
             }
         }
 
