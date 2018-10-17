@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WMPLib;
 
@@ -10,8 +11,9 @@ namespace UP_KartaMuzyczna
         #region private data
         private SoundPlayer sPlayer = new SoundPlayer();
         private WindowsMediaPlayer windowsMediaPlayer = new WindowsMediaPlayer();
+        [DllImport("winmm.dll")]public static extern int waveOutWrite(IntPtr hWaveOut,  int uSize);
         #endregion
-
+        
         #region play methods
         public void PlaySound(string path)
         {

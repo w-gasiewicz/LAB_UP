@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace UP_KartaMuzyczna
@@ -8,7 +9,8 @@ namespace UP_KartaMuzyczna
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         private string path;
         private Player soundPlayer = new Player();
-        
+        [DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
 
         public Menu()
         {
@@ -55,6 +57,19 @@ namespace UP_KartaMuzyczna
             {
                 soundPlayer.PauseWindowsMediaPlayer();
             }
+        }
+
+        private void StartRecording_btn_Click(object sender, EventArgs e)
+        {
+            mciSendString("open new Type waveaudio Alias recsound", "", 0, 0);
+            mciSendString("record recsound", "", 0, 0);            
+        }
+
+        private void StopRecording_btn_Click(object sender, EventArgs e)
+        {
+            mciSendString("save recsound C:\\Users\\FUJITSU\\Desktop\\record\\result.wav", "", 0, 0);
+            mciSendString("close recsound ", "", 0, 0);
+
         }
     }
 }
