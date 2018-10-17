@@ -39,6 +39,8 @@
             this.Stop_btn = new System.Windows.Forms.Button();
             this.Pause_btn = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.StartRecording_btn = new System.Windows.Forms.Button();
+            this.StopRecording_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,11 +148,33 @@
             this.axWindowsMediaPlayer.Size = new System.Drawing.Size(271, 48);
             this.axWindowsMediaPlayer.TabIndex = 9;
             // 
+            // StartRecording_btn
+            // 
+            this.StartRecording_btn.Location = new System.Drawing.Point(12, 343);
+            this.StartRecording_btn.Name = "StartRecording_btn";
+            this.StartRecording_btn.Size = new System.Drawing.Size(138, 50);
+            this.StartRecording_btn.TabIndex = 10;
+            this.StartRecording_btn.Text = "Rozpocznij nagrywanie";
+            this.StartRecording_btn.UseVisualStyleBackColor = true;
+            this.StartRecording_btn.Click += new System.EventHandler(this.StartRecording_btn_Click);
+            // 
+            // StopRecording_btn
+            // 
+            this.StopRecording_btn.Location = new System.Drawing.Point(250, 343);
+            this.StopRecording_btn.Name = "StopRecording_btn";
+            this.StopRecording_btn.Size = new System.Drawing.Size(138, 50);
+            this.StopRecording_btn.TabIndex = 11;
+            this.StopRecording_btn.Text = "Zakończ nagrywanie";
+            this.StopRecording_btn.UseVisualStyleBackColor = true;
+            this.StopRecording_btn.Click += new System.EventHandler(this.StopRecording_btn_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 351);
+            this.ClientSize = new System.Drawing.Size(417, 451);
+            this.Controls.Add(this.StopRecording_btn);
+            this.Controls.Add(this.StartRecording_btn);
             this.Controls.Add(this.axWindowsMediaPlayer);
             this.Controls.Add(this.Pause_btn);
             this.Controls.Add(this.Stop_btn);
@@ -181,6 +205,8 @@
         private System.Windows.Forms.Button Stop_btn;
         private System.Windows.Forms.Button Pause_btn;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
+        private System.Windows.Forms.Button StartRecording_btn;
+        private System.Windows.Forms.Button StopRecording_btn;
     }
 }
 
