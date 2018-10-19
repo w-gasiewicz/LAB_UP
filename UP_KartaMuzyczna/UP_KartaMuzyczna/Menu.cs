@@ -6,7 +6,8 @@ namespace UP_KartaMuzyczna
     public partial class Menu : Form
     {
         private OpenFileDialog openFileDialog = new OpenFileDialog();
-        private string path;
+        private SaveFileDialog saveFileDialog = new SaveFileDialog();
+        private string pathLoad, pathSave;
         private Player soundPlayer = new Player();
         
 
@@ -20,7 +21,8 @@ namespace UP_KartaMuzyczna
             try
             {
                 openFileDialog.ShowDialog();
-                path = openFileDialog.FileName;
+                pathLoad = openFileDialog.FileName;
+                loadPath_lbl.Text = pathLoad;
             }
             catch(Exception ex) {MessageBox.Show(ex.ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);}
         }
@@ -29,15 +31,19 @@ namespace UP_KartaMuzyczna
         {
             if(PlaySound_rbtn.Checked)
             {
-                soundPlayer.PlaySound(path);
+                soundPlayer.PlaySound(pathLoad);
             }
             else if(WMP_rbtn.Checked)
             {
-                soundPlayer.PlayWindowsMediaPlayer(path);
+                soundPlayer.PlayWindowsMediaPlayer(pathLoad);
             }
             else if(DirectSound_rbnt.Checked)
             {
-                soundPlayer.PlayDirectSound(path);
+                soundPlayer.PlayDirectSound(pathLoad, this.Handle);
+            }
+            else if(MCI_rbnt.Checked)
+            {
+                soundPlayer.PlayMCI(pathLoad);
             }
         }
 
@@ -55,6 +61,10 @@ namespace UP_KartaMuzyczna
             {
                 soundPlayer.StopDirectSound();
             }
+            else if (MCI_rbnt.Checked)
+            {
+                soundPlayer.StopMCI();
+            }
         }
 
         private void Pause_btn_Click(object sender, EventArgs e)
@@ -64,5 +74,30 @@ namespace UP_KartaMuzyczna
                 soundPlayer.PauseWindowsMediaPlayer();
             }
         }
+
+        private void startSave_btn_Click(object sender, EventArgs e)
+        {
+            soundPlayer.StartRecover();
+        }
+
+        private void stopSave_btn_Click(object sender, EventArgs e)
+        {
+            soundPlayer.StopRecover(pathSave);
+        }
+
+        private void selectFileSave_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFileDialog.ShowDialog();
+                saveFileDialog.Filter = "music |*.wav";
+                saveFileDialog.DefaultExt = "wav";
+                pathSave = saveFileDialog.FileName;
+                savePath_tbox.Text = pathSave;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+    
     }
 }
+

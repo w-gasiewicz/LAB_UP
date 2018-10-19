@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.PlaySound_rbtn = new System.Windows.Forms.RadioButton();
             this.WMP_rbtn = new System.Windows.Forms.RadioButton();
             this.SelectFile_btn = new System.Windows.Forms.Button();
@@ -38,14 +37,17 @@
             this.DirectSound_rbnt = new System.Windows.Forms.RadioButton();
             this.Stop_btn = new System.Windows.Forms.Button();
             this.Pause_btn = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
+            this.selectFileSave_btn = new System.Windows.Forms.Button();
+            this.stopSave_btn = new System.Windows.Forms.Button();
+            this.loadPath_lbl = new System.Windows.Forms.Label();
+            this.startSave_btn = new System.Windows.Forms.Button();
+            this.savePath_tbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // PlaySound_rbtn
             // 
             this.PlaySound_rbtn.AutoSize = true;
-            this.PlaySound_rbtn.Location = new System.Drawing.Point(9, 55);
+            this.PlaySound_rbtn.Location = new System.Drawing.Point(9, 71);
             this.PlaySound_rbtn.Margin = new System.Windows.Forms.Padding(2);
             this.PlaySound_rbtn.Name = "PlaySound_rbtn";
             this.PlaySound_rbtn.Size = new System.Drawing.Size(76, 17);
@@ -57,7 +59,7 @@
             // WMP_rbtn
             // 
             this.WMP_rbtn.AutoSize = true;
-            this.WMP_rbtn.Location = new System.Drawing.Point(9, 77);
+            this.WMP_rbtn.Location = new System.Drawing.Point(9, 92);
             this.WMP_rbtn.Margin = new System.Windows.Forms.Padding(2);
             this.WMP_rbtn.Name = "WMP_rbtn";
             this.WMP_rbtn.Size = new System.Drawing.Size(179, 17);
@@ -68,7 +70,7 @@
             // 
             // SelectFile_btn
             // 
-            this.SelectFile_btn.Location = new System.Drawing.Point(9, 10);
+            this.SelectFile_btn.Location = new System.Drawing.Point(9, 26);
             this.SelectFile_btn.Margin = new System.Windows.Forms.Padding(2);
             this.SelectFile_btn.Name = "SelectFile_btn";
             this.SelectFile_btn.Size = new System.Drawing.Size(104, 41);
@@ -91,7 +93,7 @@
             // WaveOutWrite_rbtn
             // 
             this.WaveOutWrite_rbtn.AutoSize = true;
-            this.WaveOutWrite_rbtn.Location = new System.Drawing.Point(9, 99);
+            this.WaveOutWrite_rbtn.Location = new System.Drawing.Point(9, 113);
             this.WaveOutWrite_rbtn.Margin = new System.Windows.Forms.Padding(2);
             this.WaveOutWrite_rbtn.Name = "WaveOutWrite_rbtn";
             this.WaveOutWrite_rbtn.Size = new System.Drawing.Size(96, 17);
@@ -103,7 +105,7 @@
             // MCI_rbnt
             // 
             this.MCI_rbnt.AutoSize = true;
-            this.MCI_rbnt.Location = new System.Drawing.Point(9, 121);
+            this.MCI_rbnt.Location = new System.Drawing.Point(9, 134);
             this.MCI_rbnt.Margin = new System.Windows.Forms.Padding(2);
             this.MCI_rbnt.Name = "MCI_rbnt";
             this.MCI_rbnt.Size = new System.Drawing.Size(44, 17);
@@ -115,7 +117,7 @@
             // DirectSound_rbnt
             // 
             this.DirectSound_rbnt.AutoSize = true;
-            this.DirectSound_rbnt.Location = new System.Drawing.Point(9, 143);
+            this.DirectSound_rbnt.Location = new System.Drawing.Point(9, 158);
             this.DirectSound_rbnt.Margin = new System.Windows.Forms.Padding(2);
             this.DirectSound_rbnt.Name = "DirectSound_rbnt";
             this.DirectSound_rbnt.Size = new System.Drawing.Size(87, 17);
@@ -146,22 +148,61 @@
             this.Pause_btn.UseVisualStyleBackColor = true;
             this.Pause_btn.Click += new System.EventHandler(this.Pause_btn_Click);
             // 
-            // axWindowsMediaPlayer
+            // selectFileSave_btn
             // 
-            this.axWindowsMediaPlayer.Enabled = true;
-            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(12, 221);
-            this.axWindowsMediaPlayer.Margin = new System.Windows.Forms.Padding(2);
-            this.axWindowsMediaPlayer.Name = "axWindowsMediaPlayer";
-            this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
-            this.axWindowsMediaPlayer.Size = new System.Drawing.Size(271, 48);
-            this.axWindowsMediaPlayer.TabIndex = 9;
+            this.selectFileSave_btn.Location = new System.Drawing.Point(12, 207);
+            this.selectFileSave_btn.Name = "selectFileSave_btn";
+            this.selectFileSave_btn.Size = new System.Drawing.Size(75, 23);
+            this.selectFileSave_btn.TabIndex = 9;
+            this.selectFileSave_btn.Text = "Wybierz";
+            this.selectFileSave_btn.UseVisualStyleBackColor = true;
+            this.selectFileSave_btn.Click += new System.EventHandler(this.selectFileSave_btn_Click);
+            // 
+            // stopSave_btn
+            // 
+            this.stopSave_btn.Location = new System.Drawing.Point(204, 207);
+            this.stopSave_btn.Name = "stopSave_btn";
+            this.stopSave_btn.Size = new System.Drawing.Size(75, 23);
+            this.stopSave_btn.TabIndex = 10;
+            this.stopSave_btn.Text = "Stop";
+            this.stopSave_btn.UseVisualStyleBackColor = true;
+            this.stopSave_btn.Click += new System.EventHandler(this.stopSave_btn_Click);
+            // 
+            // loadPath_lbl
+            // 
+            this.loadPath_lbl.AutoSize = true;
+            this.loadPath_lbl.Location = new System.Drawing.Point(16, 11);
+            this.loadPath_lbl.Name = "loadPath_lbl";
+            this.loadPath_lbl.Size = new System.Drawing.Size(0, 13);
+            this.loadPath_lbl.TabIndex = 11;
+            // 
+            // startSave_btn
+            // 
+            this.startSave_btn.Location = new System.Drawing.Point(107, 207);
+            this.startSave_btn.Name = "startSave_btn";
+            this.startSave_btn.Size = new System.Drawing.Size(75, 23);
+            this.startSave_btn.TabIndex = 13;
+            this.startSave_btn.Text = "Start";
+            this.startSave_btn.UseVisualStyleBackColor = true;
+            this.startSave_btn.Click += new System.EventHandler(this.startSave_btn_Click);
+            // 
+            // savePath_tbox
+            // 
+            this.savePath_tbox.Location = new System.Drawing.Point(9, 181);
+            this.savePath_tbox.Name = "savePath_tbox";
+            this.savePath_tbox.Size = new System.Drawing.Size(283, 20);
+            this.savePath_tbox.TabIndex = 14;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 285);
-            this.Controls.Add(this.axWindowsMediaPlayer);
+            this.Controls.Add(this.savePath_tbox);
+            this.Controls.Add(this.startSave_btn);
+            this.Controls.Add(this.loadPath_lbl);
+            this.Controls.Add(this.stopSave_btn);
+            this.Controls.Add(this.selectFileSave_btn);
             this.Controls.Add(this.Pause_btn);
             this.Controls.Add(this.Stop_btn);
             this.Controls.Add(this.DirectSound_rbnt);
@@ -174,7 +215,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.Text = "Menu";
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,7 +231,11 @@
         private System.Windows.Forms.RadioButton DirectSound_rbnt;
         private System.Windows.Forms.Button Stop_btn;
         private System.Windows.Forms.Button Pause_btn;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
+        private System.Windows.Forms.Button selectFileSave_btn;
+        private System.Windows.Forms.Button stopSave_btn;
+        private System.Windows.Forms.Label loadPath_lbl;
+        private System.Windows.Forms.Button startSave_btn;
+        private System.Windows.Forms.TextBox savePath_tbox;
     }
 }
 
